@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+/* Task 5: Unique CSS style — navy, white and blue page palette. */
+:root {
+    --navy: #101e35;
+    --blue: #285ea8;
+    --pale-blue: #eaf2fc;
+    --muted: #52627a;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #ffffff;
+    color: var(--navy);
+    line-height: 1.6;
+}
+
+/* Task 5: Paragraph readability, line spacing and text appearance. */
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0 0 18px;
+    overflow-wrap: break-word;
+}
+
+#band p.w3-justify { text-align: left; }
+h2 { font-weight: 700; }
+#band, #tour, #contact { scroll-margin-top: 64px; }
+.mySlides { display: none; }
+.mySlides .w3-display-bottommiddle {
+    width: 100%;
+    background: linear-gradient(transparent, rgba(16, 30, 53, 0.85));
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Task 5: Custom img style with rounded corners and smooth hover shadows.
+   Existing widths and natural image proportions are preserved. */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    transition: box-shadow 220ms ease, opacity 220ms ease;
+}
+
+img:hover { box-shadow: 0 8px 24px rgba(16, 30, 53, 0.2); }
+
+/* Task 5: Navigation colors, typography and hover states.
+   W3.CSS color utilities use !important, so these overrides need it too. */
+.w3-top > .w3-bar, #navDemo, #tour {
+    background-color: var(--navy) !important;
+    color: #ffffff !important;
+}
+
+.w3-top > .w3-bar { box-shadow: 0 3px 16px rgba(16, 30, 53, 0.2); }
+.w3-top .w3-bar-item, .w3-top .w3-dropdown-hover > button {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.w3-button, .w3-top a {
+    transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.w3-top .w3-button:hover, .w3-top a.w3-hover-red:hover,
+.w3-top .w3-dropdown-hover:hover > button, #navDemo a:hover {
+    background-color: var(--pale-blue) !important;
+    color: var(--navy) !important;
+}
+
+.w3-dropdown-content {
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+    color: var(--navy);
+}
+
+/* Task 5: Visible keyboard focus for links, buttons and form fields. */
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid #78aaf0;
+    outline-offset: 3px;
+}
+
+/* Task 5: Custom li style with readable spacing and subtle hover colors. */
+li {
+    line-height: 1.7;
+    padding: 12px 16px;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+#tour ul {
+    border-radius: 14px;
+    overflow: hidden;
+    color: var(--muted) !important;
+    border-color: #d7e3f3 !important;
+}
+
+#tour li { padding: 14px 18px !important; }
+#tour li:hover { background-color: var(--pale-blue); color: var(--navy); }
+#tour .w3-tag, #tour .w3-badge { border-radius: 6px; }
+#tour .w3-badge { background-color: var(--blue); }
+#tour > .w3-container > p.w3-opacity { opacity: 1; color: #b9cce6; }
+
+/* Task 5: Tour cards with rounded images, white panels and soft shadows. */
+#tour .w3-third {
+    transition: transform 220ms ease;
+}
+
+#tour .w3-third > img {
+    display: block;
+    border-radius: 14px 14px 0 0;
+}
+
+#tour .w3-third > .w3-container {
+    padding: 22px;
+    border-radius: 0 0 14px 14px;
+    color: var(--navy) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+#tour .w3-third p.w3-opacity { opacity: 1; color: var(--muted); }
+#tour .w3-third p:first-child { font-size: 20px; margin-bottom: 8px; }
+
+/* Task 5: Matching blue buttons, rounded form fields and footer accents. */
+#tour button, #contact button, #ticketModal .w3-teal {
+    background-color: var(--blue) !important;
+    color: #ffffff !important;
+}
+
+#tour button, #contact button, #ticketModal button { border-radius: 8px; }
+#tour button:hover, #contact button:hover, #ticketModal .w3-button.w3-teal:hover {
+    background-color: #1c477f !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(16, 30, 53, 0.2);
+}
+
+.w3-input { border-radius: 8px; padding: 12px; }
+.w3-modal-content { border-radius: 16px; overflow: hidden; }
+footer.w3-light-grey { background-color: var(--pale-blue) !important; color: var(--navy) !important; }
+
+/* Task 5: CSS-only card hover effect for devices that support hovering. */
+@media (hover: hover) {
+    #tour .w3-third:hover { transform: translateY(-5px); }
+}
+
+/* Task 5: Respect the visitor's reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+    img, li, .w3-button, .w3-top a, #tour .w3-third { transition: none; }
+    #tour .w3-third:hover { transform: none; }
+}
+/* End of Task 5 custom CSS. */
+/* Task 6: Interactive fan section and theme-aware surfaces. */
+#fan-zone { max-width: 800px; scroll-margin-top: 64px; }
+.fan-panel {
+    background: linear-gradient(135deg, #101e35, #193e70);
+    color: #ffffff;
+    border: 1px solid #42638e;
+    border-radius: 20px;
+    padding: clamp(24px, 5vw, 40px);
+    box-shadow: 0 12px 32px rgba(16, 30, 53, 0.16);
+}
+.fan-panel h2 { margin-top: 0; }
+.fan-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+.fan-button {
+    background: #eaf2fc;
+    color: #101e35;
+    border: 1px solid #b9cce6;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+.fan-button:hover { background: #cbdff9; transform: translateY(-2px); }
+#like-message { min-height: 3.6em; color: #d5e6ff; }
+#fan-info { border-top: 1px solid #6482a8; padding-top: 20px; }
+#fan-info[hidden] { display: none; }
+
+/* Task 6: Dark mode overrides leave the original light theme intact. */
+body.task6-dark { background-color: #0b1424; color: #e5edfa; }
+body.task6-dark #tour .w3-third > .w3-container,
+body.task6-dark #tour ul,
+body.task6-dark .w3-dropdown-content,
+body.task6-dark .w3-modal-content {
+    background-color: #192a43 !important;
+    color: #e5edfa !important;
+}
+body.task6-dark #tour .w3-third p.w3-opacity { color: #b9cce6; }
+body.task6-dark .w3-input {
+    background-color: #101e35;
+    color: #ffffff;
+    border-color: #6482a8 !important;
+}
+body.task6-dark .w3-input::placeholder { color: #b9cce6; }
+body.task6-dark footer.w3-light-grey {
+    background-color: #101e35 !important;
+    color: #e5edfa !important;
+}
+
+/* Task 6: JavaScript enables this fade-in only when observation is available. */
+.task6-reveal-pending { opacity: 0; transform: translateY(24px); }
+.task6-reveal-visible { animation: task6-fade-in 700ms ease both; }
+@keyframes task6-fade-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .fan-button { transition: none; }
+    .fan-button:hover { transform: none; }
+    .task6-reveal-pending { opacity: 1; transform: none; }
+    .task6-reveal-visible { animation: none; }
+}
+</style>
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
+        <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+        <div class="w3-dropdown-hover w3-hide-small">
+        <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+            <a href="#" class="w3-bar-item w3-button">Merchandise</a>
+            <a href="#" class="w3-bar-item w3-button">Extras</a>
+            <a href="#" class="w3-bar-item w3-button">Media</a>
+        </div>
+        </div>
+        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+    </div>
+    </div>
+
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="#band" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">BAND</a>
+    <a href="#tour" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">TOUR</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MERCH</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+    <!-- Automatic Slideshow Images -->
+    <div class="mySlides w3-display-container w3-center">
+        <img src="https://www.w3schools.com/w3images/la.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+        <h3>Los Angeles</h3>
+        <p><b>We had the best time playing at Venice Beach!</b></p>   
+        </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+        <img src="https://www.w3schools.com/w3images/ny.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+        <h3>New York</h3>
+        <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
+        </div>
+    </div>
+    <div class="mySlides w3-display-container w3-center">
+        <img src="https://www.w3schools.com/w3images/chicago.jpg" style="width:100%">
+        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+        <h3>Chicago</h3>
+        <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
+        </div>
+    </div>
+
+    <!-- The Band Section -->
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+        <h2 class="w3-wide">THE BAND</h2>
+        <p class="w3-opacity"><i>We love music</i></p>
+        <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="w3-row w3-padding-32">
+        <div class="w3-third">
+            <p>Name</p>
+            <img src="https://www.w3schools.com/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        </div>
+        <div class="w3-third">
+            <p>Name</p>
+            <img src="https://www.w3schools.com/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+        </div>
+        <div class="w3-third">
+            <p>Name</p>
+            <img src="https://www.w3schools.com/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
+        </div>
+        </div>
+    </div>
+
+    <!-- The Tour Section -->
+    <div class="w3-black" id="tour">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+        <h2 class="w3-wide w3-center">TOUR DATES</h2>
+        <p class="w3-opacity w3-center"><i>Remember to book your tickets!</i></p><br>
+
+        <ul class="w3-ul w3-border w3-white w3-text-grey">
+            <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
+            <li class="w3-padding">October <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
+            <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li>
+        </ul>
+
+        <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+            <div class="w3-third w3-margin-bottom">
+            <img src="https://www.w3schools.com/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>New York</b></p>
+                <p class="w3-opacity">Fri 27 Nov 2016</p>
+                <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+            </div>
+            </div>
+            <div class="w3-third w3-margin-bottom">
+            <img src="https://www.w3schools.com/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>Paris</b></p>
+                <p class="w3-opacity">Sat 28 Nov 2016</p>
+                <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+            </div>
+            </div>
+            <div class="w3-third w3-margin-bottom">
+            <img src="https://www.w3schools.com/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+            <div class="w3-container w3-white">
+                <p><b>San Francisco</b></p>
+                <p class="w3-opacity">Sun 29 Nov 2016</p>
+                <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Ticket Modal -->
+    <div id="ticketModal" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4">
+        <header class="w3-container w3-teal w3-center w3-padding-32"> 
+            <span onclick="document.getElementById('ticketModal').style.display='none'" 
+        class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+            <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
+        </header>
+        <div class="w3-container">
+            <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
+            <input class="w3-input w3-border" type="text" placeholder="How many?">
+            <p><label><i class="fa fa-user"></i> Send To</label></p>
+            <input class="w3-input w3-border" type="text" placeholder="Enter email">
+            <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
+            <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+            <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+        </div>
+        </div>
+    </div>
+
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        <h2 class="w3-wide w3-center">CONTACT</h2>
+        <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
+        <div class="w3-row w3-padding-32">
+        <div class="w3-col m6 w3-large w3-margin-bottom">
+            <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
+            <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+            <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+        </div>
+        <div class="w3-col m6">
+            <form action="/action_page.php" target="_blank">
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                </div>
+                <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                </div>
+            </div>
+            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+            <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    
+    <!-- Task 6: Interactive controls; existing sections remain unchanged. -->
+    <section id="fan-zone" class="w3-container w3-content w3-padding-64" aria-labelledby="fan-heading">
+        <div class="fan-panel">
+            <h2 id="fan-heading">FAN ZONE</h2>
+            <p>Make yourself at home. Choose your theme, show the band some love, and discover more.</p>
+            <div class="fan-actions">
+                <button id="theme-toggle" class="fan-button" type="button" aria-pressed="false">Dark mode: off</button>
+                <button id="like-button" class="fan-button" type="button">Like the band</button>
+                <button id="info-toggle" class="fan-button" type="button" aria-expanded="false" aria-controls="fan-info">Show information</button>
+            </div>
+            <p aria-live="polite" aria-atomic="true">Likes: <strong id="like-count">0</strong></p>
+            <p id="like-message" role="status">Be the first to cheer us on!</p>
+            <div id="fan-info" hidden>
+                <h3>A little more for the fans</h3>
+                <p>Explore the tour dates above to find your next show, use Buy Tickets to open the booking window, or send the band a note through the contact section.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- End Page Content -->
+    </div>
+
+    <!-- Image of location/map -->
+    <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%">
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+
+    <script>
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000);    
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+    </script>
+
+    <script>
+    // Task 6: Keep new effects scoped away from the original slideshow and menu.
+    (() => {
+        const themeButton = document.getElementById('theme-toggle');
+        const likeButton = document.getElementById('like-button');
+        const likeCount = document.getElementById('like-count');
+        const likeMessage = document.getElementById('like-message');
+        const infoButton = document.getElementById('info-toggle');
+        const info = document.getElementById('fan-info');
+        let likes = 0;
+
+        // Task 6, effect 1: Toggle dark mode and expose its state to assistive tools.
+        themeButton.addEventListener('click', () => {
+            const darkMode = document.body.classList.toggle('task6-dark');
+            themeButton.setAttribute('aria-pressed', String(darkMode));
+            themeButton.textContent = darkMode ? 'Dark mode: on' : 'Dark mode: off';
+        });
+
+        // Task 6, effect 2: Count likes; if/else detects the five-like milestone.
+        likeButton.addEventListener('click', () => {
+            likes += 1;
+            likeCount.textContent = String(likes);
+            if (likes >= 5) {
+                likeMessage.textContent = 'Five likes reached! You are a superstar fan. Thank you!';
+            } else {
+                likeMessage.textContent = `Thanks for the love! ${5 - likes} more to reach five likes.`;
+            }
+        });
+
+        // Task 6, effect 3: Show/hide extra information with an accessible state.
+        infoButton.addEventListener('click', () => {
+            info.hidden = !info.hidden;
+            infoButton.setAttribute('aria-expanded', String(!info.hidden));
+            infoButton.textContent = info.hidden ? 'Show information' : 'Hide information';
+        });
+
+        // Task 6 animation: Fade the fan section in once it enters the viewport.
+        // Keep it visible in older browsers and when reduced motion is preferred.
+        const fanZone = document.getElementById('fan-zone');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if ('IntersectionObserver' in window && !reducedMotion) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        fanZone.classList.remove('task6-reveal-pending');
+                        fanZone.classList.add('task6-reveal-visible');
+                        observer.unobserve(fanZone);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fanZone.classList.add('task6-reveal-pending');
+            observer.observe(fanZone);
+        }
+    })();
+    </script>
+
+    </body>
+</html>
